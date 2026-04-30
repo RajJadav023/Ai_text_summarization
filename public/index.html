@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Summarizer | Premium NLP Tool</title>
+    <meta name="description" content="Generate concise summaries of large texts instantly using advanced AI models.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">✨</span>
+                <h1>AI Summarizer</h1>
+            </div>
+            <p class="subtitle">Transform long articles into concise insights with Bart AI</p>
+        </header>
+
+        <section class="tool-section">
+            <div class="glass-card input-card">
+                <div class="card-header">
+                    <h2>Input Text</h2>
+                    <span class="char-count" id="char-count">0 characters</span>
+                </div>
+                <textarea id="input-text" placeholder="Paste your long text here (minimum 50 characters)..."></textarea>
+                <div class="card-footer">
+                    <button id="summarize-btn" class="primary-btn">
+                        <span class="btn-text">Generate Summary</span>
+                        <div class="loader" id="btn-loader"></div>
+                    </button>
+                    <button id="clear-btn" class="secondary-btn">Clear</button>
+                </div>
+            </div>
+
+            <div class="glass-card output-card" id="output-container">
+                <div class="card-header">
+                    <h2>Generated Summary</h2>
+                    <button id="copy-btn" class="icon-btn" title="Copy to clipboard">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="summary-placeholder" id="summary-placeholder">
+                    Your summary will appear here...
+                </div>
+                <div class="summary-content hidden" id="summary-content">
+                    <p id="summary-text"></p>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
