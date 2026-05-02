@@ -1,26 +1,33 @@
-# AI Text Summarization Tool 🚀
+# AI Text Studio 🚀
 
-A modern, premium web application for generating concise summaries of long articles, using the Hugging Face Inference API.
+A modern, premium web application for generating concise summaries, analyzing text for AI generation, and automatically humanizing content. Built with Node.js and the Hugging Face Inference API.
 
 ## ✨ Features
-- **Premium UI**: Dark mode with neon accents and frosted-glass effects (Glassmorphism).
-- **Bart AI**: Powered by `facebook/bart-large-cnn`, a state-of-the-art NLP model.
-- **Copy to Clipboard**: One-click copying for generated results.
-- **Responsive**: Fully optimized for mobile and desktop screens.
+
+- **Premium Two-Column Workspace**: Sleek dark mode UI with glassmorphism effects, dividing the workspace into a Content Editor and an Insights Panel.
+- **Advanced Summarization**: Powered by `facebook/bart-large-cnn` to instantly distill long articles into concise insights.
+- **Custom Summary Length**: Users can define the exact length (max words) for their generated summaries.
+- **Multi-Format Document Upload**: Easily upload and extract text from `.pdf`, `.docx`, `.txt`, and Image files (using Tesseract OCR, mammoth, and pdf-parse).
+- **AI Detection Analysis**: Analyzes text using `roberta-base-openai-detector` to display a live "Human vs. AI" score using dynamic progress bars.
+- **Auto-Humanize Text**: Refines and rewrites text using `Meta-Llama-3-8B-Instruct` to sound completely natural, conversational, and human-like.
+- **One-Click Copy**: Easily copy generated results to your clipboard.
 
 ## 🛠 Technology Stack
+
 - **Frontend**: HTML5, Vanilla CSS3, JavaScript (ES6+).
 - **Backend**: Node.js & Express.js.
 - **AI Integration**: Hugging Face official Inference SDK.
-- **Tools**: Axios, CORS, Dotenv.
+- **File Parsing**: Multer, `pdf-parse`, `mammoth` (Word docs), `tesseract.js` (OCR for images).
+- **Tools**: CORS, Dotenv.
 
 ## 🔄 Workflow Architecture
-1. **User Input**: User pastes a long paragraph (50+ characters) into the textured input area.
-2. **Frontend Request**: The browser sends a POST request with the text to the Node.js `/generate-summary` endpoint.
-3. **Backend Processing**: The Express server receives the text and calls the Hugging Face Inference API using the official SDK.
-4. **AI Summarization**: The `bart-large-cnn` model processes the text on Hugging Face's high-performance servers.
-5. **Result Retrieval**: The generated summary is returned to the Node.js server and then sent back to the frontend.
-6. **Display**: The UI dynamically updates to show the summary with a smooth fade-in animation.
+
+1. **Content Input**: User pastes text or uploads a document into the Content Editor.
+2. **Settings**: User selects the desired summary length.
+3. **AI Summarization**: The backend calls the Hugging Face `bart-large-cnn` model to generate a summary.
+4. **AI Analysis**: Clicking "Analyze AI" hits a classification model to determine the probability of the text being human vs AI.
+5. **Auto-Humanize**: The `Meta-Llama-3` model lightly paraphrases the text to increase its natural conversational flow and improve the human score.
+6. **Live Insights**: The right panel dynamically updates with summaries, scores, and smooth fade-in animations without any clunky modals.
 
 ## 🚀 How to Run Locally
 
@@ -48,4 +55,4 @@ node server.js
 The application will be running at `http://localhost:5000`.
 
 ---
-*Created for efficient text processing and modern web demonstration.*
+*Created for efficient text processing, AI analysis, and modern web demonstration.*
