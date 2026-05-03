@@ -1,0 +1,18 @@
+AI Text Summarization Application Flow
+
+1. Text Input & Extraction:
+   - The user provides text either by typing/pasting it directly into the application or by uploading a document.
+   - If a document is uploaded (PDF, DOCX, TXT, or Image), the backend extracts the text from the file using appropriate libraries (like pdf-parse, mammoth, or Tesseract for images).
+
+2. AI Summarization:
+   - The user requests a summary of the provided text.
+   - The frontend sends the text and a desired length to the backend `/generate-summary` endpoint.
+   - The backend uses the Hugging Face API (specifically the `facebook/bart-large-cnn` model) to generate a concise summary of the text.
+   - The generated summary is returned and displayed to the user.
+
+3. AI Analysis & Humanization (Optional but integrated):
+   - Analyze AI: The user can analyze any text to check its AI/Human probability score. The `/check-humanization` endpoint uses the `roberta-base-openai-detector` model to evaluate if the text sounds human or AI-generated.
+   - Auto-Humanize: If the text feels too robotic, the user can refine it. The `/refine-text` endpoint sends the text to the `meta-llama/Meta-Llama-3-8B-Instruct` model, which lightly paraphrases it to sound more natural and human-like without changing the original meaning.
+
+Overall Flow:
+Input/Upload -> Extract Text -> Generate Summary -> (Optional) Analyze for AI -> (Optional) Humanize Text.
