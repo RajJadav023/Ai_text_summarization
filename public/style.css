@@ -23,7 +23,9 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background: linear-gradient(135deg, #0f0c29, #302b63, #0a0a0c);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
     color: var(--text-main);
     min-height: 100vh;
     overflow-x: hidden;
@@ -81,6 +83,12 @@ body {
 @keyframes move {
     0% { transform: translate(0, 0) scale(1); }
     100% { transform: translate(100px, 100px) scale(1.2); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
